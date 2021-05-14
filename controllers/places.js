@@ -5,15 +5,39 @@ const router = express.Router();
 const Place = require("../models/place-model");
 
 // Index: GET all the places
-router.get("/", (req, res, next) => {
-  // 1. Get all of the places from the DB
+router.get("/", (req, res) => {
   Place.find({})
-    // 2. Send them back to the client as JSON
     .then((places) => res.json(places))
-    // 3. If there's an error pass it on!
-    .catch(next);
+    .catch(console.error);
 });
 
 // Show: Get a Place by name
+router.get('/:id', (req, res) => {
+  Place.findById(req.params.id)
+    .then((place) => {
+      res.json(place)
+    })
+    .catch(console.error);
+});
+
+router.put('/:id', (req, res) => {
+  Place.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
+    .then(() => console.log("success"))
+    .catch(console.error);
+});
+
+router.post('/', (req, res) => {
+  Place.create(req.body)
+    .then(() => console.log("success"))
+    .catch(console.error);
+});
+
+router.delete('/:id', (req, res) => {
+  Place.findOneAndDelete({ 
+    _id: req.params.id
+  })
+    .then((gif) => console.log("success"))
+    .catch(console.error);
+});
 
 module.exports = router;
