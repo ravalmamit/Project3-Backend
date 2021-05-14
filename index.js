@@ -19,10 +19,10 @@ app.get("/", (req, res) => {
 
 /* START ROUTE CONTROLLERS */
 const placesController = require("./controllers/places");
-app.use("/api/places/", placesController);
+app.use("/api/places", placesController);
 
 const usersController = require("./controllers/users");
-app.use("/api/users/", usersController);
+app.use("/api/users", usersController);
 
 /* END ROUTE CONTROLLERS */
 
