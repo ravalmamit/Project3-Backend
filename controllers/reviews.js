@@ -13,7 +13,6 @@ router.get("/", (req, res) => {
 
 // Create: Create a new review for a specific place
 router.post('/', (req, res) => {
-  console.log(req.body)
   Reviews.create(req.body)
   .then((review) => res.json(review))
   .catch(console.error);
