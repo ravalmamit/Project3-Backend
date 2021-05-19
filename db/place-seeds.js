@@ -1,7 +1,9 @@
 // Require the model which has a connection to the database
 const Place = require("../models/place-model");
+const Review = require("../models/review-model");
 // Require a json file which contains some dummy data
 const seedData = require("./place-seeds.json");
+const reviewData = require("./review-seeds.json")
 
 // Remove any preexisting data
 Place.deleteMany({})
@@ -21,3 +23,9 @@ Place.deleteMany({})
     // Close the connection to Mongo
     process.exit();
   });
+
+Review.deleteMany({})
+.then(() => Review.insertMany(reviewData))
+.then(console.log)
+.catch(console.error)
+.finally(() => process.exit());

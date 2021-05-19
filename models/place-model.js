@@ -28,14 +28,15 @@ const PlaceSchema = new mongoose.Schema(
     user_ratings_total: {
       type: Number,
     },
+    reviews: [{
+      // References use the type ObjectId
+      type: mongoose.Schema.Types.ObjectId,
+      // the name of the model to which they refer
+      ref: 'Review',
+    }],
   },
   { timestamps: true }
 );
-
-// Make sure to name the model with the singular Place!
-// Mongoose pluralizes and lowercases the name of the model
-// to name the collection of documents in the database that
-// correspond to this model.
 
 const Place = mongoose.model("Place", PlaceSchema);
 

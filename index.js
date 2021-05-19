@@ -21,8 +21,8 @@ app.get("/", (req, res) => {
 const placesController = require("./controllers/places");
 app.use("/api/places/", placesController);
 
-const usersController = require("./controllers/users");
-app.use("/api/users/", usersController);
+const reviewsController = require("./controllers/reviews");
+app.use("/api/reviews/", reviewsController);
 
 /* END ROUTE CONTROLLERS */
 
