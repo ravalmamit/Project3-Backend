@@ -1,0 +1,7 @@
+proj3-user
+n8K9LkPjmf43Z0Uu
+
+mongodb+srv://proj3-user:n8K9LkPjmf43Z0Uu@cluster0.isfgm.mongodb.net/travelDatabase?retryWrites=true&w=majority
+
+heroku back-end
+https://blooming-eyrie-52127.herokuapp.com/ | https://git.heroku.com/blooming-eyrie-52127.git
